@@ -1,0 +1,19 @@
+<div class="<%= item.layout %>" itemscope itemprop="blogPost">
+  <div class="entrytitle"><% if (item.link) { %> 
+<a href="<%- item.link %>" target="_blank" itemprop="url"><%= item.title %></a>
+  <% } else{ %>
+    <a href="<%- config.root %><%- item.path %>" title="<%= item.title %>" itemprop="url"><%= item.title %></a>
+  <% } %></div>
+    <% if (desc){ %>
+     <% if(item.description){ %>
+      <p itemprop="description" ><%- item.description %></p>
+      <% } else if(item.excerpt){ %>
+       <p itemprop="description" ><%= strip_html(item.excerpt).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 160) %></p>
+      <% } else {%>
+           <p itemprop="description" ><%= strip_html(item.content).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 160) %></p>
+        <% } %>
+    <% } %>
+	<div class="bottominfo"><span class="time"><%= item.date.format(config.date_format) %></span>
+		<span class="readmore"><a class="btn btn-lg  btn-sty" href="<%- config.root %><%- item.path %>" role="button" itemprop="url">View More»</a></span>
+	</div>
+</div>

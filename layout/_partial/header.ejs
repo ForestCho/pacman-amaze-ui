@@ -1,0 +1,39 @@
+<header id="amz-header">
+<div class="amz-container am-cf">
+			<div id="textlogo">
+				<h1 class="site-name"><a href="<%- config.root %>" title="<%= config.title %>"><%= config.title %></a></h1>
+				<h2 class="blog-motto"><% if (config.subtitle){ %><%= config.subtitle %><% } %></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="<%= __('menu') %>">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 <% for (var i in theme.menu){ %>
+<% if ( i == "Category"){ %>
+		<li class="am-dropdown" data-am-dropdown>
+			<a href="#" class="am-dropdown-toggle" data-am-dropdown-toggle><%= i %> <span class="am-icon-caret-down"></span</a>
+
+<% }else{ %>
+		<li><a href="<%- theme.menu[i] %>" ><%= i %></a>
+<% } %>
+
+<% if ( i == "Category"){
+		var countpostnum=0;
+		 %>
+		<ul class="am-dropdown-content">
+                         <% site.categories.sort('name').each(function(item){ %>
+		<li><a data-src="<%- config.root %><%- item.path %>" href="<%- config.root %><%- item.path %>" title="<%= item.name %>"><%= item.name %><sup><%= item.posts.length %></sup></a></li>
+<%
+countpostnum =countpostnum+item.posts.length
+ });%>
+			 <li><a href="<%- theme.menu[i] %>" >全部<sup><%=countpostnum %></sup></a></li>
+</ul>
+<%}%>
+</li>
+					<% } %>
+					
+				</ul>
+			</nav>			
+</div>
+</header>
