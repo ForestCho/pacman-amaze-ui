@@ -16,11 +16,11 @@ menu:
 ## -weibo
 #### Widgets
 widgets: 
-- rss
 - search
 - category
 - tag
 - links
+- rss
 ## provide six widgets:category,tag,rss,archive,tagcloud,links.
 ## modify links in `/layout/_widget/links.ejs`.
 

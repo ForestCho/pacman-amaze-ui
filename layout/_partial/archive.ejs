@@ -2,69 +2,65 @@
 var title = '';
 var icon = '';
 if (page.category){
-  title = page.category;
-  icon = 'category';
+title = page.category;
+icon = 'category';
 };
 if (page.tag){
-  title = page.tag;
-  icon = 'tag';
+title = page.tag;
+icon = 'tag';
 };
 if (page.archive){
-  icon = 'archive';
-  if (page.year) title = page.year+  (page.month ? '/' + page.month : '');
-  else title = __('archive_a');
+icon = 'archive';
+if (page.year) title = page.year+  (page.month ? '/' + page.month : '');
+else title = __('archive_a');
 };
-   var year, month;
-   var last_time = -1;
-   var is_first_time = 1; 
-   var time = 1;
+var year, month;
+var last_time = -1;
+var is_first_time = 1;
+var time = 1;
 %>
-
-
 <div class="archive-title" >
   <h2 class="<%= icon %>-icon"><%= title %></h2>
-<div class="am-panel-group"" id="accordiontemp">
-	<% page.posts.each(function(item){ %>		
-		<%
-		   year = item.date.toDate().getFullYear();
-		   month = item.date.toDate().getMonth();
-		   time = item.date.format("YYYY-MM");   
-		%>
-		<% if (time != last_time){ %>
-			<% if (!is_first_time) { %>
-        </div>
-			</ul>
-			</div>
-			<% } %>
-			<% is_first_time = 0 %>
-			 <div class="am-panel am-panel-default">
- 			 <div class="am-panel-hd">
-			 <h4 class="am-panel-title">
-        			<a data-am-collapse="{parent: '#accordion', target: '#<%= year %>-<%= month+1 %>'}">
-          				<i class="icon-time"></i> <%= year %>-<%= month+1 %>
-        			</a>
-      			 </h4>
-			</div>
-    			<ul id="<%= year %>-<%= month+1 %>" class="am-panel-collapse am-collapse am-in">
-    			   <div class="am-panel-bd">
-          <% last_time = time; %>
-    		<% } %>
-      			<li class="listing-item">
-        				<span class="date_class"> <%= item.date.format("YYYY-MM-DD") %> </span> &raquo;
-       			 <% if (item.link){ %>
-       				 <% if (item.title){ %>
-        					<span class="title link"><a href="<%- item.link %>"  class="linkurl" target="_blank" <% if (item.description) { %> title="<%= item.description %>" <% } %>><%= item.title %></a></span>
-        				<% } else { %>
-      					<span class="title link"><a href="<%- item.link %>" class="linkurl" target="_blank" <% if (item.description) { %> title="<%= item.description %>" <% } %>><%= item.link %></a></span>
-        				<% } %>
-        			<% } else { %>
-        				<span class="title"><a href="<%- config.root %><%- item.path %>" class="linkurl" <% if (item.description) { %> title="<%= item.description %>" <% } %>><%= item.title %></a></span>
-        <% } %>
-      		</li>		 
-	<% }); %>
+  <div class="am-panel-group"" id="accordiontemp">
+    <% page.posts.each(function(item){ %>
+    <%
+    year = item.date.toDate().getFullYear();
+    month = item.date.toDate().getMonth();
+    time = item.date.format("YYYY-MM");
+    %>
+    <% if (time != last_time){ %>
+    <% if (!is_first_time) { %>
+  </div>
+</ul>
 </div>
-
+<% } %>
+<% is_first_time = 0 %>
+<div class="am-panel am-panel-default">
+<div class="am-panel-hd">
+  <h4 class="am-panel-title">
+  <a data-am-collapse="{parent: '#accordion', target: '#<%= year %>-<%= month+1 %>'}">
+    <i class="icon-time"></i> <%= year %>-<%= month+1 %>
+  </a>
+  </h4>
 </div>
+<ul id="<%= year %>-<%= month+1 %>" class="am-panel-collapse am-collapse am-in">
+  <div class="am-panel-bd">
+    <% last_time = time; %>
+    <% } %>
+    <li class="listing-item">
+      <span class="date_class"> <%= item.date.format("YYYY-MM-DD") %> </span> &raquo;
+      <% if (item.link){ %>
+      <% if (item.title){ %>
+      <span class="title link"><a href="<%- item.link %>" target="_blank" <% if (item.description) { %> title="<%= item.description %>" <% } %>><%= item.title %><i class="icon-external-link"></i></a></span>
+      <% } else { %>
+      <span class="title link"><a href="<%- item.link %>" target="_blank" <% if (item.description) { %> title="<%= item.description %>" <% } %>><%= item.link %><i class="icon-external-link"></i></a></span>
+      <% } %>
+      <% } else { %>
+      <span class="title"><a href="<%- config.root %><%- item.path %>"  <% if (item.description) { %> title="<%= item.description %>" <% } %>><%= item.title %><i class="icon-external-link"></i></a></span>
+      <% } %>
+    </li>
+    <% }); %>
+  </div>
 </div>
 </div>
-
+</div>

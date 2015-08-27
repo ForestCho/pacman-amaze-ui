@@ -2,31 +2,34 @@
 page.tags = ' ';
 %>
 <div class="archive-title" >
-        <h2 class="category-icon"><%= __('categories') %></h2>
-        <div class="panel-group" id="accordion">
-        <% site.tags.sort('name').each(function(item){ %>
-        <a data-src="<%- config.root %><%- item.path %>" href="#<%= item.name %>" title="<%= item.name %>"><%= item.name %><sup><%= item.posts.length %></sup></a>
-        <% }); %>
+  <h2 class="category-icon"><%= __('categories') %></h2>
+  <div class="am-panel-group"" id="accordiontemp"> 
+<!--  <nav data-am-scrollspy-nav="{offsetTop: 45}" data-am-sticky>
+ <ul> -->
+     <% site.tags.sort('name').each(function(item){ %>
+     <a data-src="<%- config.root %><%- item.path %>" href="#<%= item.name %>" title="<%= item.name %>"><%= item.name %><sup><%= item.posts.length %></sup></a>
+    <% }); %>
+<!--   </ul>
+</nav> -->
 
-        <% site.tags.sort('name').each(function(item){ %>
-           <div class="panel panel-default">
-                         <div class="panel-heading">
-                         <h4 class="panel-title" data-target="#modal-<%= item.name %>">
-                                <a data-toggle="collapse" data-target="<%= item.name %>" data-parent="#accordion" class="collapsed">
-                                        #<%= item.name %>
-                                </a>
-                         </h4>
-                        </div>
-           <ul id="<%= item.name %>" class="collapse in archiveul">
-           <% site.posts.sort('date', -1).forEach(function(it){ %>
-                   <% if (it.tags._index.indexOf(item._id) > -1){ %>
-                         <li class="listing-item"><a href="<%= config.root %><%= it.path %>" class="linkurl" <% if (it.description) { %> title="<%= it.description %>" <% } %>><%= it.title %></a></li>
-                  <% } %>
-           <% }); %>
-           </ul>
-        </div>
+    <% site.tags.sort('name').each(function(item){ %>
+    <div class="am-panel am-panel-default">
+      <div class="am-panel-hd">
+        <h4 class="panel-title" data-target="#modal-<%= item.name %>">
+        <a data-toggle="collapse" data-target="<%= item.name %>" data-parent="#accordion" class="collapsed">
+          <i class="icon-tag"></i> <%= item.name %>
+        </a>
+        </h4>
+      </div>
+      <ul id="<%= item.name %>" class="collapse in archiveul">
+        <% site.posts.sort('date', -1).each(function(it){ %>
+        <% if (it.tags._index.indexOf(item._id) > -1){ %>
+        <li class="listing-item"><a href="<%= config.root %><%= it.path %>"<% if (it.description) { %> title="<%= it.description %>" <% } %>><%= it.title %><i class="icon-external-link"></i></a></li>
+        <% } %>
         <% }); %>
-        </ul>
+      </ul>
     </div>
+    <% }); %>
+  </ul>
 </div>
-
+</div>
