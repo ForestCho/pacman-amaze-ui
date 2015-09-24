@@ -1,8 +1,5 @@
 pacman-amaze-ui
-
-Pacman is a flat and responsive design theme for [Hexo](http://zespia.tw/hexo/).
-
-alse base pacmanBlue
+ 
 这是个基于amazeUI的hexo主题
 [Demo](http://forestcho.github.io/) 
 
