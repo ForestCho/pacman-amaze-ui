@@ -30,3 +30,9 @@ BODY {
 	 _right: auto
 
 }
+.am-pagination{
+	margin-left: 0px !important;
+}
+.am-pagination>li>a, .am-pagination>li>span{
+	padding: 10px 22px !important;
+}

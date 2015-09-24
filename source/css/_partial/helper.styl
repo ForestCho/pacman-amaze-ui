@@ -127,15 +127,25 @@ footer.article-footer
   opacity 1
   visibility visible
 
-//tags&categories
-.article-tags,.article-categories
+//tags
+.article-tags
   padding 0.5em 0
   float left
   width 100%
   @media phone
     width 50%
   @media mini
-    width 30%
+    width 40%
+
+//categories
+.article-categories
+  padding 0.5em 0
+  float left
+  width 100%
+  @media phone
+    width 50%
+  @media mini
+    width 20%
 
 .article-tags
   color lighten(color-gray,20%) 
@@ -153,8 +163,7 @@ footer.article-footer
   a
     float left
     padding 0 0.3em
-    margin 0.3em
-    background lighten(color-gray,50%)
+    margin 0.3em 
     &:hover
       color color-white
       background color-blue

@@ -1,6 +1,6 @@
 // https://github.com/chriskempson/tomorrow-theme
 
-code-bgc = #272822
+code-bgc = #8D8D8D
 code-tag = #F92672
 code-attr = #A6E22E
 code-word = #FFFFFF
@@ -16,11 +16,12 @@ $code-block
   padding: 10px 10px
   overflow: auto
   color: #4C4C4C
+  
   line-height: font-size * line-height
-  border-radius: 4px
+  border-radius: 0px
 
 $line-numbers
-  color: #666
+  color: #CECECE
 
 .article-content
   pre, code
@@ -59,9 +60,11 @@ $line-numbers
         float: right
     .gutter pre
       @extend $line-numbers
-      text-align: right
-      padding-right: 20px
-      white-space pre
+      text-align: right;
+      padding-right: 10px;
+      white-space: pre;
+      border-right: 1px solid #BABABA;
+      margin-right: 10px;
       .line
         text-shadow: none
     .line
