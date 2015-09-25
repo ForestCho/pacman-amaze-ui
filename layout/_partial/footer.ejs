@@ -2,8 +2,14 @@
 	<DIV style="DISPLAY: none" id=goTopBtn><IMG border=0 src="<%- config.root %>img/lanren_top.jpg"></DIV>
 <div id="displayside"><img id="imgaside" border="0" src="<%- config.root %>img/noside.png" title="隐藏侧边栏"></div>
 
-<SCRIPT type=text/javascript>goTopEx();</SCRIPT>
-<SCRIPT type=text/javascript>displaySide();</SCRIPT>
+<SCRIPT type=text/javascript>
+    $('body').show();
+    $('.version').text(NProgress.version);
+    NProgress.start();
+    setTimeout(function() { NProgress.done(); $('.fade').removeClass('out'); }, 1000);
+</SCRIPT>
+
+  <script src="<%- config.root %>js/zoom.js"></script> 
 	<% if(theme.author.intro_line1&&theme.author.intro_line2){ %>
 	<section class="info">
 		<p> <%= theme.author.intro_line1 %> <br/>

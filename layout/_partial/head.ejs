@@ -44,10 +44,13 @@
   <link rel="stylesheet" href="<%- config.root %>css/lrtk.css" type="text/css">
   <link rel="stylesheet" href="<%- config.root %>css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="<%- config.root %>css/amazeui.min.css" type="text/css">
+  <link rel="stylesheet" href="<%- config.root %>css/nprogress.css" type="text/css">
+  <link rel="stylesheet" href="<%- config.root %>css/zoom.css" type="text/css">
 
 
   <script src="<%- config.root %>js/jquery-2.0.3.min.js"></script> 
   <script src="<%- config.root %>js/scrolltop.js"></script> 
+  <script src="<%- config.root %>js/nprogress.js"></script>  
   <script src="<%- config.root %>js/amazeui.min.js"></script>  
   <link rel="canonical" href="http://amazeui.org/javascript/scrollspynav?_ver=2.x">
 
@@ -56,11 +59,6 @@
     <% } %>
     <% if (theme.favicon){ %>
     <link rel="icon" href="<%- config.root %><%- theme.favicon %>">
-    <% } %>
-    <% if (theme.apple_icon){ %>
-    <link rel="apple-touch-icon" href="<%- config.root %><%- theme.apple_icon %>">
-    <link rel="apple-touch-icon-precomposed" href="<%- config.root %><%- theme.apple_icon %>">
-
-    <% } %>
-    <%- css('css/style') %>
+    <% } %> 
+    <%- css('css/style') %> 
 </head>
