@@ -25,7 +25,7 @@ page.category = ' ';
 	   <ul id="<%= item.name %>" class="am-panel-collapse am-collapse am-in">
 	      <div class="am-panel-bd">
 		   <% site.posts.sort('date', -1).forEach(function(it){ %>
-			   <% if (it.categories._index.indexOf(item._id) > -1){ %>
+			   <% if (it.categories.data.indexOf(item._id) > -1){ %>
 		   	   	 <li class="listing-item"><a href="<%= config.root %><%= it.path %>" class="linkurl" <% if (it.description) { %> title="<%= it.description %>" <% } %>><%= it.title %></a></li>
 			  <% } %>
 		   <% }); %>

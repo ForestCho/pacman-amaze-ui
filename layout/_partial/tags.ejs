@@ -22,8 +22,8 @@ page.tags = ' ';
         </h4>
       </div>
       <ul id="<%= item.name %>" class="collapse in archiveul">
-        <% site.posts.sort('date', -1).each(function(it){ %>
-        <% if (it.tags._index.indexOf(item._id) > -1){ %>
+        <% site.posts.sort('date', -1).each(function(it){ %> 
+        <% if (it.tags.data.indexOf(item._id) > -1){ %>
         <li class="listing-item"><a href="<%= config.root %><%= it.path %>"<% if (it.description) { %> title="<%= it.description %>" <% } %>><%= it.title %><i class="icon-external-link"></i></a></li>
         <% } %>
         <% }); %>
